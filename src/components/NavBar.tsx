@@ -1,7 +1,7 @@
-import { HStack, Image} from "@chakra-ui/react"
-import logo from "../assets/game-galaxy-logo.jpg" 
-import ColorModeSwitch from "./ColorModeSwitch"
-import SearchInput from "./SearchInput"
+import { Center, HStack, Image } from "@chakra-ui/react";
+import logo from "../assets/game-galaxy-logo.jpg";
+import ColorModeSwitch from "./ColorModeSwitch";
+import SearchInput from "./SearchInput";
 
 interface Props {
   onSearch: (searchText: string) => void;
@@ -9,12 +9,14 @@ interface Props {
 
 const NavBar = ({ onSearch }: Props) => {
   return (
-    <HStack padding='10px'>
-        <Image src={logo} boxSize='60px' />
-        <SearchInput onSearch={onSearch}/>
-        <ColorModeSwitch />
+    <HStack padding="10px">
+      <Center bg="black" width="55px" borderRadius={10}>
+        <Image src={logo} boxSize="38px" borderRadius={10}/>
+      </Center>
+      <SearchInput onSearch={onSearch} />
+      <ColorModeSwitch />
     </HStack>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
