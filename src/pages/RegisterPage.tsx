@@ -14,7 +14,7 @@ import {
   InputLeftElement,
   InputGroup,
 } from "@chakra-ui/react";
-import contra from "../assets/contra.gif";
+import contra from "../assets/anim/contra.gif";
 import pacmanPixel from "../assets/anim/pacman-pixel.gif";
 import marioJump from "../assets/anim/mario-jump.gif";
 import server from "../services/server-client";
