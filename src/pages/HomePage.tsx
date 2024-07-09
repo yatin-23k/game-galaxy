@@ -5,6 +5,7 @@ import GameHeading from '../components/GameHeading'
 import GenreList from '../components/GenreList'
 import PlatformSelector from '../components/PlatformSelector'
 import SortSelector from '../components/SortSelector'
+import SearchInput from '../components/SearchInput'
 
 const Homepage = () => {
   return (
@@ -24,6 +25,7 @@ const Homepage = () => {
       </GridItem>
     </Show>
     <GridItem area="main">
+      <SearchInput />
       <Box paddingLeft={2}>
         <GameHeading />
         <Flex marginBottom={5}>
