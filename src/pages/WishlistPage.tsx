@@ -5,6 +5,9 @@ import Game from "../entities/Game";
 import useWishlist from  "../hooks/useWishlist"
 
 const WishlistPage = () => {
+  const username = localStorage.getItem("username");
+  if (!username) window.location.href = "/login";
+
    const { data: games, isLoading, error } = useWishlist();
 
    const skeletons = [

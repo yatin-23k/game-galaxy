@@ -53,7 +53,6 @@ const LoginPage = () => {
   };
 
   const handleSubmit = async () => {
-    console.log("submitting");
     if (username === "") {
       setErrors({ ...errors, username: "Username is required" });
       return;
