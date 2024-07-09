@@ -2,6 +2,7 @@ import Game from '../entities/Game';
 import { SimpleGrid, Text } from '@chakra-ui/react';
 import CriticScore from './CriticScore';
 import DefinitionItem from './DefinitionItem';
+import WishlistButton from './WishlistButton';
 
 interface Props {
     game: Game;
@@ -28,6 +29,7 @@ const GameAttributes = ({ game }: Props) => {
             <Text key={publisher.id}>{publisher.name}</Text>
           ))}
         </DefinitionItem>
+        <WishlistButton gameSlug={game.slug} />
       </SimpleGrid>
   )
 }
