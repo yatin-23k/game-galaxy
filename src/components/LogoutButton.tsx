@@ -6,7 +6,11 @@ const LogoutButton = () => {
         window.location.href = "/";
     }
 
-    return <Button onClick={logout}>Logout</Button>;
+    return (
+        <Button onClick={logout} colorScheme="blue" size="sm">
+          Logout
+        </Button>
+      );
 };
 
 export default LogoutButton;

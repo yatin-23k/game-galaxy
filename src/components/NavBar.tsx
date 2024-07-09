@@ -22,7 +22,7 @@ const NavBar = () => {
         </Link>
       </Center>
       <Link to="/">
-        <Heading size="md" color="white">
+        <Heading size="md">
           Game Galaxy
         </Heading>
       </Link>
