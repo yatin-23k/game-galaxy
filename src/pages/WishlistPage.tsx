@@ -5,7 +5,6 @@ import Game from "../entities/Game";
 import useWishlist from  "../hooks/useWishlist"
 
 const WishlistPage = () => {
-   // const server_wishlist = useWishlist();
    const { data: games, isLoading, error } = useWishlist();
 
    const skeletons = [

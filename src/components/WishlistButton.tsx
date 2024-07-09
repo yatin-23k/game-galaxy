@@ -9,11 +9,6 @@ const WishlistButton = ({ gameSlug }: { gameSlug: string }) => {
   useEffect(() => {
     const checkWishlist = async () => {
       try {
-        // const res = await axios.post(
-        //   "http://localhost:3000/api/wishlist/check",
-        //   { game_id: gameSlug },
-        //   { headers: { username: localStorage.getItem("username") } }
-        // );
         const res = await server.post(
           "/wishlist/check",
           { game_id: gameSlug },
@@ -29,7 +24,6 @@ const WishlistButton = ({ gameSlug }: { gameSlug: string }) => {
 
   const handleSubmit = async () => {
     if (isWishlisted) {
-      console.log("deleting");
       try {
         await server.post(
           "/wishlist/delete",
@@ -41,7 +35,6 @@ const WishlistButton = ({ gameSlug }: { gameSlug: string }) => {
         console.log("error", error);
       }
     } else {
-      console.log("adding");
       try {
         await server.post(
           "/wishlist/add",
