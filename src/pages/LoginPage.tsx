@@ -14,9 +14,10 @@ import {
   InputLeftElement,
   InputGroup,
 } from "@chakra-ui/react";
-import contra from "../assets/contra.gif";
+import contra from "../assets/anim/contra.gif";
 import pacmanPixel from "../assets/anim/pacman-pixel.gif";
 import marioJump from "../assets/anim/mario-jump.gif";
+import server from "../services/server-client"
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -42,7 +43,6 @@ const LoginPage = () => {
       }
     }, 200);
 
-    localStorage.setItem("token", "1234567890");
     setTimeout(() => {
       setPlayPacman(false);
       setPlayMario(true);
@@ -54,6 +54,43 @@ const LoginPage = () => {
 
   const handleSubmit = async () => {
     console.log("submitting");
+    if (username === "") {
+      setErrors({ ...errors, username: "Username is required" });
+      return;
+    } else {
+      setErrors({ ...errors, username: "" });
+    }
+
+    if (password === "") {
+      setErrors({ ...errors, password: "Password is required" });
+      return;
+    } else {
+      setErrors({ ...errors, password: "" });
+    }
+
+    try {
+      const response = await server.post("/users/login", {
+        username,
+        password,
+      });
+
+      console.log(response);
+
+      if (response.status === 200 && response.data.username) {
+        localStorage.setItem("username", response.data.username);
+        loginAnimation();
+      } else {
+        setErrors({
+          ...errors,
+          password: response.data.error
+            ? response.data.error
+            : "Invalid username or password",
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      setErrors({ ...errors, password: "Invalid username or password" });
+    }
   };
 
   return (
