@@ -1,13 +1,12 @@
 import { Button } from "@chakra-ui/react";
 
 const LogoutButton = () => {
-  const username = localStorage.getItem("username");
-  if (!username) window.location.href = "/login";
+    function logout() {
+        localStorage.removeItem("username");
+        window.location.href = "/";
+    }
 
-  localStorage.removeItem("username");
-  window.location.href = "/";
-
-  return <Button>Logout</Button>;
+    return <Button onClick={logout}>Logout</Button>;
 };
 
 export default LogoutButton;
