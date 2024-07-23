@@ -7,7 +7,7 @@ export interface FetchResponse<T> {
 }
 
 const axiosInstance = axios.create({
-  baseURL: "https://server-psi-pearl.vercel.app/api",
+  baseURL: "https://gamegalaxy-server.vercel.app/",
 });
 
 // const axiosInstance = axios.create({
